@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+<div>
+    {% for news in newsItems %}
+        <h3>{{ news.title }}</h3>
+        {{ news.text | striptags | raw | slice(0, 200) }}...
+        <a href="{{ url('news_view', {'id': news.id}) }}">подробнее</a></p>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
